@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 林恒旭的 ASP.NET 应用程序</title>
+    <!-链接式css->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1555324_ur7i1zezhas.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
+    <!-嵌入式css->
+    <style>
+        * {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        body {
+            line-height: 1.5;
+            font-size: 14px;
+            font-family: 'lucida Grande', Verdana, 'Microsoft YaHei'
+        }
+
+        .wrap {
+            border: 1px solid #dadada;
+            width: 810px;
+            background: #fff;
+            box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+            margin: 100px auto;
+            display: grid;
+            grid: 1fr / 220px 1fr;
+            box-sizing: border-box;
+        }
+
+        .info {
+            grid-area: 1 / 2 / 2 / 1;
+            background: #F5F5F5;
+            padding: 0 14px 0 20px;
+            overflow: hidden;
+        }
+
+        .content {
+            grid-area: 1 / 3 / 2 / 2;
+            padding: 30px 25px 45px 17px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .info .avatar {
+            /* text-align: center; */
+            width: 130px;
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 40px auto 15px;
+            /* animation-play-state: paused; */
+        }
+
+        .avatar img {
+            width: 100%;
+        }
+
+        .info .avatar:hover {
+            animation: scaleZoom .3s ease-in-out;
+        }
+
+        .info .msg {
+            color: #374760;
+        }
+
+        .msg .personage-basic {
+            padding-top: 3px;
+            font-size: 14px;
+            /* vertical-align: middle; */
+        }
+
+        .name {
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        i.icon {
+            color: #828FA0;
+            padding-right: 5px
+        }
+
+        .line {
+            margin: 13px 8px;
+            line-height: 0;
+            font-size: 1px;
+            border-top: 1px solid #e1e1e1;
+        }
+
+        .content .title {
+            position: relative;
+            padding: 0 30px 5px 0;
+            font-size: 16px;
+            font-weight: bold;
+            color: #374760;
+            transition: all .3s ease-in;
+            cursor: pointer;
+        }
+
+            .content .title:hover {
+                color: pink;
+            }
+
+        .item-base {
+            padding-bottom: 23px;
+        }
+
+        .itme-content {
+            font-size: 14px;
+            padding: 5px 0 5px 3px;
+        }
+
+        .itme-content-work {
+            font-size: 14px;
+            display: grid;
+            grid: auto auto / 1fr;
+            grid-gap: 4px 0;
+            padding: 5px 0 5px 3px;
+        }
+
+        .tmpl_modCnt {
+            grid-area: 1 / 2 / 2 / 1;
+        }
+
+        ul.item-wrap {
+            padding-left: 20px;
+            grid-area: 3 / 2 / 3 / 1;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .work-firm,
+        .work-job {
+            padding: 0 15px;
+        }
+
+        .line-blue {
+            position: relative;
+            line-height: 1;
+            border-bottom: 1px solid #5484ed;
+        }
+
+        .edu_modCnt {
+            display: grid;
+            grid: auto / 1fr 1fr 1fr;
+        }
+
+        .edu-wrap {
+            padding: 3px 0 0 5px;
+        }
+    </style>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("林恒旭的简历", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
+                    <li>@Html.ActionLink("项目介绍", "Project", "Home")</li>
+                    <li>@Html.ActionLink("生活照", "PhotoWall", "Home")</li>
+                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 林恒旭的 ASP.NET 应用程序</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
